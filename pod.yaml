@@ -9,4 +9,4 @@ spec:
       image: kube-metric:test
       env:
         - name: APPINSIGHTS_INSTRUMENTATIONKEY
-          value: "<someappinsightsvalue>"
+          value: "somekey"

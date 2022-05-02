@@ -13,8 +13,8 @@ RUN \
 
 
 FROM  scratch as final
-
 COPY --from=build  /build/kube-metric-sender  /kube-metric-sender
 COPY --from=certs /ca-certificates.crt /etc/ssl/certs/
+ENV APPINSIGHTS_INSTRUMENTATIONKEY="somekey"
 WORKDIR "/"
 ENTRYPOINT ["/kube-metric-sender"]
