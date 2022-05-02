@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-sender
+spec:
+  serviceAccountName: kube-metrics
+  containers:
+    - name: kube-sender
+      image: kube-metric:test
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tools
+spec:
+  containers:
+    - name: tools
+      image: debian:bullseye-slim
+      command: ["sleep", "9600"]

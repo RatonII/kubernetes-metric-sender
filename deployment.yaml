@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+  labels:
+    app: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: test
+        image: debian:bullseye-slim
+        command: ["sleep", "9600"]
+        env:
+          - name: APPINSIGHTS_INSTRUMENTATIONKEY
+            value: "<someappinsightsvalue>"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test2
+  labels:
+    app: test2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test2
+  template:
+    metadata:
+      labels:
+        app: test2
+    spec:
+      containers:
+        - name: test2
+          image: debian:bullseye-slim
+          command: ["sleep", "9600"]
+          env:
+            - name: APPINSIGHTS_INSTRUMENTATIONKEY
+              value: "<someappinsightsvalue>"
