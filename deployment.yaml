@@ -18,9 +18,6 @@ spec:
       - name: test
         image: debian:bullseye-slim
         command: ["sleep", "9600"]
-        env:
-          - name: APPINSIGHTS_INSTRUMENTATIONKEY
-            value: "<someappinsightsvalue>"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -42,6 +39,3 @@ spec:
         - name: test2
           image: debian:bullseye-slim
           command: ["sleep", "9600"]
-          env:
-            - name: APPINSIGHTS_INSTRUMENTATIONKEY
-              value: "<someappinsightsvalue>"
